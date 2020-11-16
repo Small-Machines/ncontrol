@@ -3,23 +3,24 @@
 <template>
   <div data-app>
     <Nav class="mb-6" v-on:update:locked="updateLock($event)" />
-    <Display />
+    <component :is="current_panel" />
   </div>
 </template>
 
 <script>
-import Display from './components/Display.vue'
+import Startscreen from './components/Startscreen.vue'
 import Nav from './components/Nav.vue'
 
 export default {
   name: 'App',
   components: {
-    Display,
     Nav,
+    Startscreen,
   },
   data() {
     return {
       app_locked: true,
+      current_panel: Startscreen,
     }
   },
   methods: {
@@ -30,4 +31,15 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+html {
+  overflow: hidden !important;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+</style>
