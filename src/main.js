@@ -11,15 +11,11 @@ Vue.use(VueMaterial)
 
 import './assets/tailwind.css'
 
-import VueDraggableResizable from 'vue-draggable-resizable'
 import './assets/tailwind.css'
 
 // optionally import default styles
-import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
 import vuetify from './plugins/vuetify'
-
-Vue.component('vue-draggable-resizable', VueDraggableResizable)
 
 Vue.config.productionTip = false
 

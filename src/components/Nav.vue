@@ -7,7 +7,7 @@
         width="30.0109375mm"
         height="10.29390625mm"
         version="1.1"
-        viewBox="0 0 200 65.881"
+        viewBox="0 0 240 65.881"
         xmlns="http://www.w3.org/2000/svg"
       >
         <g transform="translate(-41.549 -165.12)">

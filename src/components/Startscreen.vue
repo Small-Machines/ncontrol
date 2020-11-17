@@ -1,9 +1,12 @@
 <!-- @format -->
 
 <template>
-  <div>
-    <v-img src="@/assets/auto2.jpg" height="440" class="grey darken-4"></v-img>
-  </div>
+  <v-img
+    src="@/assets/knottyer.png"
+    height="480"
+    width="800"
+    class="grey darken-4"
+  ></v-img>
 </template>
 
 <script>

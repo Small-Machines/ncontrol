@@ -2,7 +2,7 @@
 
 <template>
   <div data-app>
-    <Nav class="mb-6" v-on:update:locked="updateLock($event)" />
+    <Nav v-on:update:locked="updateLock($event)" />
     <component :is="current_panel" />
   </div>
 </template>
