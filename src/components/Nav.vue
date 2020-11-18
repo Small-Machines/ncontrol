@@ -44,9 +44,20 @@
           </text>
         </g>
       </svg>
+      <div width="300">
+        <v-spacer></v-spacer>
+        <v-icon
+          :disabled="!!locked"
+          large
+          color="green darken-2"
+          @click.native="menu"
+        >
+          mdi-menu
+        </v-icon>
+      </div>
       <v-spacer></v-spacer>
 
-      <Lock v-on:update="updateLock($event)" />
+      <Lock @update="updateLock" />
     </v-system-bar>
   </div>
 </template>
@@ -56,11 +67,22 @@ import Lock from './Lock'
 export default {
   components: { Lock },
   data() {
-    return {}
+    return {
+      locked: true,
+    }
   },
   methods: {
+    menu() {
+      this.$emit('menu')
+    },
     updateLock(value) {
-      this.$emit('update:locked', value)
+      if (value == 'locked') {
+        this.locked = true
+      } else if (value == 'unlocked') {
+        this.locked = false
+      }
+
+      this.$emit('update:lock', value)
     },
   },
 }

@@ -3,7 +3,7 @@
 <template>
   <div>
     <div v-html="current_path" @click="toggle" />
-    <Numpad v-bind:show_numpad="show_numpad" v-on:update="checkPin($event)" />
+    <Numpad v-bind:show_numpad="show_numpad" v-on:update="checkPin" />
   </div>
 </template>
 <script>
@@ -38,8 +38,8 @@ export default {
         this.current_path = this.path_locked
       }
     },
-    checkPin(event) {
-      if (event == this.pin) {
+    checkPin(pin) {
+      if (pin == this.pin) {
         this.locked = false
         this.show_numpad = false
         this.$emit('update', 'unlocked')
