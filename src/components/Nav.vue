@@ -44,19 +44,23 @@
           </text>
         </g>
       </svg>
-      <div width="300">
+      <div class="flex content-around flex-wrap">
         <v-spacer></v-spacer>
         <v-icon
           :disabled="!!locked"
           large
           color="green darken-2"
-          @click.native="menu"
+          @click.native="home"
         >
           mdi-menu
         </v-icon>
       </div>
-      <v-spacer></v-spacer>
 
+      <v-spacer></v-spacer>
+      <v-chip class="ma-2" color="red" text-color="white" dark>
+        {{ app_state.config.name }} ver: {{ app_state.config.version }}
+      </v-chip>
+      <v-spacer></v-spacer>
       <Lock @update="updateLock" />
     </v-system-bar>
   </div>
@@ -65,15 +69,17 @@
 <script>
 import Lock from './Lock'
 export default {
+  name: 'Nav',
   components: { Lock },
   data() {
     return {
       locked: true,
     }
   },
+  props: ['app_state'],
   methods: {
-    menu() {
-      this.$emit('menu')
+    home() {
+      this.$emit('home')
     },
     updateLock(value) {
       if (value == 'locked') {
